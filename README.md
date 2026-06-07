@@ -793,37 +793,3 @@ Nodo no autorizado para validar bloques
 9. Si quieres observar gossip, crea topologias en cadena y usa `ttl` mayor que `1`.
 10. Usar `resolve_conflicts()` solo si se quiere comprobar el mecanismo de respaldo o resincronizar un nodo atrasado.
 
-## 21. Limitaciones
-
-- es un prototipo academico, no un sistema de produccion
-- no hay cifrado de transporte ni autenticacion de red avanzada
-- la identidad del actor se apoya en la posesion de clave privada, sin PKI real
-- el PoA actual autoriza identificadores de nodo, pero todavia no fija una relacion inmutable entre `validator_id` y una clave publica concreta
-- el gossip actual es flooding simple sobre peers conocidos, no un protocolo de disseminacion optimizado
-- la propagacion no incluye reintentos avanzados ni confirmaciones de entrega
-- el peer discovery sigue siendo de arranque o bajo demanda, no un descubrimiento autonomo continuo
-- la persistencia es local en JSON
-- el indice auxiliar vive en memoria y depende de la cadena local reconstruida
-- el PoA actual ya incorpora turnos, pero no introduce quorum ni finalidad fuerte
-- el consenso usa comparacion de cadenas validas y recuperacion de eventos huerfanos, pero sigue siendo una simplificacion academica
-- el minado sigue siendo manual, aunque la red y la propagacion ya funcionan de forma distribuida
-
-## 22. Mejoras futuras
-
-- anadir mas metadatos de producto y lote
-- reforzar reintentos y observabilidad de propagacion
-- incluir pruebas unitarias y de integracion automatizadas
-- validar reglas temporales mas estrictas entre eventos
-- introducir roles simples por actor sin convertir el proyecto en un sistema complejo
-- persistir el indice auxiliar o regenerarlo bajo demanda con metricas de rendimiento
-- automatizar el minado por turnos cuando existan eventos pendientes
-- reforzar el bootstrap con varias semillas y anuncios bidireccionales de peers
-- evolucionar este PoA basico hacia un esquema con quorum o finalidad mas fuerte
-- evolucionar el gossip hacia un modelo mas selectivo, con mejor control de bucles y confirmaciones
-- evolucionar el peer discovery hacia un modelo mas automatico y continuo
-
-## 23. Consideraciones academicas
-
-- la "mainnet simulada" puede presentarse como la red final estable tras validar la testnet local
-- no hay criptomoneda, mineria real ni smart contracts
-- la prioridad es la claridad del modelo y su defensa academica, no el rendimiento o la seguridad industrial
